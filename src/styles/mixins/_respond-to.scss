@@ -1,0 +1,16 @@
+@use "/src/styles/_variables.scss";
+
+@function get-media-query($name) {
+  $query: map-get(variables.$mediaQueries, $name);
+  @return "#{$query}";
+}
+
+@mixin respond-to($name) {
+  @if map-has-key(variables.$mediaQueries, $name) {
+    @media #{get-media-query($name)} {
+      @content;
+    }
+  } @else {
+    @error "MediaQuery #{$name} does not exist";
+  }
+}

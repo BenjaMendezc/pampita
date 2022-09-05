@@ -1,0 +1,12 @@
+@use "/src/styles/mixins/size" as *;
+@use "/src/styles/mixins/respond-to" as *;
+
+.Menu-container {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-direction: column;
+  top: 2rem;
+  left: 0.5rem;
+  gap: 1rem;
+}
