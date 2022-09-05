@@ -12,7 +12,15 @@ export const Card = ({ name }: CardProps): ReactElement => {
   const warningColor = useMemo(() => {
     if (amount === 0) return "red";
 
-    const warningLevel = amount > 12 ? "#78fac8" : "#fff300";
+    let warningLevel;
+
+    if (amount > 12) {
+      warningLevel = "#78fac8";
+    } else {
+      warningLevel = "#fff300";
+    }
+
+    // const warningLevel = amount > 12 ? "#78fac8" : "#fff300";
 
     return warningLevel;
   }, [amount]);
