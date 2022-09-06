@@ -2,12 +2,21 @@
 @use "/src/styles/mixins/size" as *;
 @use "/src/styles/mixins/_position.scss" as *;
 
+.total-card{
+  display: flex;
+  width: 40rem;
+  height: 4.4rem;
+  border: 0.1rem solid black;
+  border-radius: 0.2rem;
+  flex-direction: row;
+
 .Card-container {
   display: flex;
   width: 30rem;
   height: 4.4rem;
   border: 0.1rem solid black;
   border-radius: 0.2rem;
+  flex-direction: row;
 
   .Amount-container {
     display: flex;
@@ -22,4 +31,28 @@
       font-weight: bold;
     }
   }
+ 
+}
+
+.Docena{
+  display: flex;
+  width: 5rem;
+  height: 4.4rem;
+  border: 0.1rem solid black;
+  background-color: orange;
+  border-radius: 0.2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.Mediadocena{
+  display: flex;
+  width: 5rem;
+  height: 4.4rem;
+  border: 0.1rem solid black;
+  background-color: rgba(255, 123, 0, 0.829);
+  border-radius: 0.2rem;
+  align-items: center;
+  justify-content: center;
+}
 }

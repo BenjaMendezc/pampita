@@ -10,6 +10,7 @@ type CardProps = {
   name: string;
 };
 
+
 export const Card = ({ name }: CardProps): ReactElement => {
   const [amount, setAmount] = useState<number>(25);
 
@@ -43,10 +44,29 @@ export const Card = ({ name }: CardProps): ReactElement => {
     }
   );
 
+
+
+  const docenaHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    console.log('sumaste 1 docena');
+    setAmount((prevState) => prevState - 12);
+
+  }
+
+  const mediadocenaHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    console.log('sumaste 1/2 docena')
+    setAmount((prevState) => prevState - 6);
+  }
+
   return (
-    <button className="Card-container" {...handleTap}>
-      <Amount stock={amount} />
-      <Title empanada={name} bgcolor={warningColor} />
-    </button>
+    <div className="total-card">
+      <button className="Card-container" {...handleTap}>
+        <Amount stock={amount} />
+        <Title empanada={name} bgcolor={warningColor} />
+      </button>
+      <button className="Docena" onClick={docenaHandler}>Docena</button>
+      <button className="Mediadocena" onClick={mediadocenaHandler}>1/2 Docena</button>
+    </div>
   );
 };
