@@ -67,6 +67,10 @@ export const Card = ({ name }: CardProps): ReactElement => {
       </button>
       <button className="Docena" onClick={docenaHandler}>Docena</button>
       <button className="Mediadocena" onClick={mediadocenaHandler}>1/2 Docena</button>
+      <div className="Pedido">
+        <label>Cantidad</label>
+        <input type='number' min='0' step='1' max='25' />
+      </div>
     </div>
   );
 };
