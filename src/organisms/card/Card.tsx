@@ -1,7 +1,7 @@
 import React, { ReactElement, useMemo, useState } from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
-import Amount from "./Amount";
+import Amount from "../../molecules/Amount";
 
 
 type CardProps = {

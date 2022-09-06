@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 import './Amount.scss';
-import { Card } from "../../organisms/card/Card";
 
 type AmountProps = {
   stock: number;
