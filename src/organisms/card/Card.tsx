@@ -1,13 +1,15 @@
 import React, { ReactElement, useMemo, useState } from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
+import Amount from "../../molecules/Amount";
+
 
 type CardProps = {
   name: string;
 };
 
 export const Card = ({ name }: CardProps): ReactElement => {
-  const [amount, setAmount] = useState(25);
+  const [amount, setAmount] = useState<number>(25);
 
   const warningColor = useMemo(() => {
     if (amount === 0) return "red";
@@ -41,11 +43,10 @@ export const Card = ({ name }: CardProps): ReactElement => {
 
   return (
     <button className="Card-container" {...handleTap}>
-      <div className="Card-color-bar">
-        <p className="Card-color-bar__amount">{amount}</p>
-      </div>
+      <Amount stock={amount} />
       <div className="Card-body" style={{ backgroundColor: warningColor }}>
         <div className="Card-body__text">{name}</div>
+
       </div>
     </button>
   );
