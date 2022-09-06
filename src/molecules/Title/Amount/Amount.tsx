@@ -7,8 +7,8 @@ type AmountProps = {
 
 function Amount({ stock }: AmountProps): ReactElement {
   return (
-    <div className="Card-color-bar">
-      <p className="Card-color-bar__amount">{stock}</p>
+    <div className="Amount-container">
+      <p className="Amount">{stock}</p>
     </div>
   );
 }
