@@ -5,14 +5,13 @@ import { useDoubleTap } from "use-double-tap";
 import Title from "../../molecules/Title/Title";
 import Amount from "../../molecules/Title/Amount/Amount";
 
-
 type CardProps = {
   name: string;
 };
 
-
 export const Card = ({ name }: CardProps): ReactElement => {
   const [amount, setAmount] = useState<number>(25);
+  const [pedidoValue, setPedidoValue] = useState<number>(0);
 
   const warningColor = useMemo(() => {
     if (amount === 0) return "red";
@@ -44,20 +43,17 @@ export const Card = ({ name }: CardProps): ReactElement => {
     }
   );
 
-
-
   const docenaHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log('sumaste 1 docena');
-    setAmount((prevState) => prevState - 12);
-
-  }
+    console.log("sumaste 1 docena");
+    setPedidoValue((prevState) => prevState + 12);
+  };
 
   const mediadocenaHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log('sumaste 1/2 docena')
-    setAmount((prevState) => prevState - 6);
-  }
+    console.log("sumaste 1/2 docena");
+    setPedidoValue((prevState) => prevState + 6);
+  };
 
   return (
     <div className="total-card">
@@ -65,11 +61,24 @@ export const Card = ({ name }: CardProps): ReactElement => {
         <Amount stock={amount} />
         <Title empanada={name} bgcolor={warningColor} />
       </button>
-      <button className="Docena" onClick={docenaHandler}>Docena</button>
-      <button className="Mediadocena" onClick={mediadocenaHandler}>1/2 Docena</button>
+      <button className="Docena" onClick={docenaHandler}>
+        Docena
+      </button>
+      <button className="Mediadocena" onClick={mediadocenaHandler}>
+        1/2 Docena
+      </button>
       <div className="Pedido">
         <label>Cantidad</label>
-        <input type='number' min='0' step='1' max='25' />
+        <input
+          type="number"
+          min="0"
+          step="1"
+          max="25"
+          value={pedidoValue}
+          onChange={(e) => {
+            setPedidoValue(parseInt(e.target.value));
+          }}
+        />
       </div>
     </div>
   );
