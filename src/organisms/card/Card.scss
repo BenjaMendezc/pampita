@@ -2,28 +2,14 @@
 @use "/src/styles/mixins/size" as *;
 @use "/src/styles/mixins/_position.scss" as *;
 
-.Card-container {
+.Card-body__button-container {
   display: flex;
   width: 30rem;
   height: 4.4rem;
   border: 0.1rem solid black;
   border-radius: 0.2rem;
 
-  .Card-color-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @include position(0);
-    width: 15%;
-    background-color: blue;
-    .Card-color-bar__amount {
-      color: #fff;
-      font-size: 2.3rem;
-      font-weight: bold;
-    }
-  }
-
-  .Card-body {
+  .Card-text__container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,25 +17,5 @@
     color: #000;
     font-size: 2.3rem;
     font-weight: bold;
-  }
-  .Card-body[data-animation="increase"] {
-    animation: lighting 0.1s;
-  }
-  .Card-body[data-animation="decrease"] {
-    animation: lighting 0.1s;
-  }
-
-  @keyframes lighting {
-    from {
-      background-color: #78fac8;
-    }
-    to {
-      background-image: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.1) 50%,
-        rgba(0, 0, 0, 0) 100%
-      );
-    }
   }
 }

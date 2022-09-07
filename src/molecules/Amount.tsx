@@ -1,17 +1,16 @@
-import React, { ReactElement } from 'react';
-import './Amount.scss';
+import React, { ReactElement } from "react";
+import "./Amount.scss";
 
 type AmountProps = {
   stock: number;
-}
+};
 
 function Amount({ stock }: AmountProps): ReactElement {
   return (
-    <div className="Card-color-bar">
-      <p className="Card-color-bar__amount">{stock}</p>
+    <div className="Amount-body">
+      <p className="Amount-body_stock">{stock}</p>
     </div>
   );
 }
 
-
-export default Amount
+export default Amount;

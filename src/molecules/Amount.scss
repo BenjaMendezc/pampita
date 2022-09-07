@@ -2,24 +2,18 @@
 @use "/src/styles/mixins/size" as *;
 @use "/src/styles/mixins/_position.scss" as *;
 
-.Card-container {
-  display: flex;
-  width: 30rem;
-  height: 4.4rem;
-  border: 0.1rem solid black;
-  border-radius: 0.2rem;
-
-.Card-color-bar {
+.Card-body__button-container {
+  .Amount-body {
     display: flex;
     align-items: center;
     justify-content: center;
     @include position(0);
     width: 15%;
     background-color: blue;
-    .Card-color-bar__amount {
+    .Amount-body_stock {
       color: #fff;
       font-size: 2.3rem;
       font-weight: bold;
     }
+  }
 }
-}   
