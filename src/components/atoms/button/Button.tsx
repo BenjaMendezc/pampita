@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { ReactElementBaseProps } from "../../types/global";
+import { ReactElementBaseProps } from "../../../types/global";
 
 interface ButtonProps extends ReactElementBaseProps {
   handleClick: any;

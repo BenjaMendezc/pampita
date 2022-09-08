@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { ReactElementBaseProps } from "../../types/global";
+import { ReactElementBaseProps } from "../../../types/global";
 import "./Title.scss";
 
 interface TitleProps extends ReactElementBaseProps {}
