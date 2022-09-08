@@ -1,5 +1,6 @@
 import { Dispatch, ReactElement, SetStateAction } from "react";
 import { ReactElementBaseProps } from "../../types/global";
+import "./ButtonsGroup.scss";
 
 interface ButtonsGroupProps extends ReactElementBaseProps {
   setParentState: Dispatch<SetStateAction<number>>;

@@ -41,28 +41,6 @@
 
   .Card-buttons-group {
     display: flex;
-
-    .Docena {
-      display: flex;
-      width: 5rem;
-      height: 4.4rem;
-      border: 0.1rem solid black;
-      background-color: orange;
-      border-radius: 0.2rem;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .Mediadocena {
-      display: flex;
-      width: 5rem;
-      height: 4.4rem;
-      border: 0.1rem solid black;
-      background-color: rgba(255, 123, 0, 0.829);
-      border-radius: 0.2rem;
-      align-items: center;
-      justify-content: center;
-    }
   }
 
   .Pedido {

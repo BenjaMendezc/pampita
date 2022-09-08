@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { ReactElementBaseProps } from "../../types/global";
 
 interface ButtonProps extends ReactElementBaseProps {
-  handleClick: () => {};
+  handleClick: any;
 }
 
 export const Button = ({
