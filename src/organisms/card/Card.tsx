@@ -3,7 +3,7 @@ import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
 
 import Title from "../../molecules/Title/Title";
-import Amount from "../../molecules/Title/Amount/Amount";
+import Amount from "../../molecules/Amount/Amount";
 
 type CardProps = {
   name: string;
@@ -56,17 +56,23 @@ export const Card = ({ name }: CardProps): ReactElement => {
   };
 
   return (
-    <div className="total-card">
-      <button className="Card-container" {...handleTap}>
-        <Amount stock={amount} />
-        <Title empanada={name} bgcolor={warningColor} />
-      </button>
-      <button className="Docena" onClick={docenaHandler}>
-        Docena
-      </button>
-      <button className="Mediadocena" onClick={mediadocenaHandler}>
-        1/2 Docena
-      </button>
+    <div className="Card">
+      <div className="Card-body" {...handleTap}>
+        <Amount stock={amount} className="Card-body__amount" />
+        <Title
+          copy={name}
+          className="Card-body__title"
+          style={{ backgroundColor: warningColor }}
+        />
+      </div>
+      <div className="Card-buttons-group">
+        <button className="Docena" onClick={docenaHandler}>
+          Docena
+        </button>
+        <button className="Mediadocena" onClick={mediadocenaHandler}>
+          1/2 Docena
+        </button>
+      </div>
       <div className="Pedido">
         <label>Cantidad</label>
         <input

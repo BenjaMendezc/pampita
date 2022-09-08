@@ -1,3 +1,9 @@
 @use "/src/styles/mixins/_position.scss" as *;
 @use "/src/styles/mixins/size" as *;
 @use "/src/styles/mixins/_position.scss" as *;
+
+.Amount-display {
+  color: #fff;
+  font-size: 2.3rem;
+  font-weight: bold;
+}

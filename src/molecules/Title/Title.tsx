@@ -1,19 +1,15 @@
-import React, { ReactElement } from 'react';
-import './Title.scss';
+import React, { ReactElement } from "react";
+import { ReactElementBaseProps } from "../../types/global";
+import "./Title.scss";
 
-type TitleProps = {
-    empanada: string;
-    bgcolor: string;
+interface TitleProps extends ReactElementBaseProps {}
+
+function Title({ copy, className, style }: TitleProps): ReactElement {
+  return (
+    <div className={className} style={style}>
+      <div className="Title__text">{copy}</div>
+    </div>
+  );
 }
 
-function Title({ empanada, bgcolor }: TitleProps): ReactElement {
-    return (
-        <div className="Title" style={{ backgroundColor: bgcolor }}>
-            <div className="Card-body__text">{empanada}</div>
-        </div>
-    );
-}
-
-
-export default Title
-
+export default Title;
