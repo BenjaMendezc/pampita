@@ -9,6 +9,7 @@ export const Menu = (): ReactElement => {
       {data.map((empanada) => {
         return <Card name={empanada.name} />;
       })}
+      <div>total=</div>
     </div>
   );
 };

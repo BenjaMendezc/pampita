@@ -7,8 +7,8 @@ type AmountProps = {
 
 function Amount({ stock }: AmountProps): ReactElement {
   return (
-    <div className="Amount-body">
-      <p className="Amount-body_stock">{stock}</p>
+    <div className="Amount-container">
+      <p className="Amount">{stock}</p>
     </div>
   );
 }
