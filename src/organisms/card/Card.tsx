@@ -4,6 +4,7 @@ import { useDoubleTap } from "use-double-tap";
 
 import Title from "../../molecules/title/Title";
 import Amount from "../../molecules/amount/Amount";
+import { ButtonsGroup } from "../../molecules/buttonsGroup/ButtonsGroup";
 
 type CardProps = {
   name: string;
@@ -43,18 +44,6 @@ export const Card = ({ name }: CardProps): ReactElement => {
     }
   );
 
-  const docenaHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    console.log("sumaste 1 docena");
-    setPedidoValue((prevState) => prevState + 12);
-  };
-
-  const mediadocenaHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    console.log("sumaste 1/2 docena");
-    setPedidoValue((prevState) => prevState + 6);
-  };
-
   return (
     <div className="Card">
       <div className="Card-body" {...handleTap}>
@@ -65,14 +54,10 @@ export const Card = ({ name }: CardProps): ReactElement => {
           style={{ backgroundColor: warningColor }}
         />
       </div>
-      <div className="Card-buttons-group">
-        <button className="Docena" onClick={docenaHandler}>
-          Docena
-        </button>
-        <button className="Mediadocena" onClick={mediadocenaHandler}>
-          1/2 Docena
-        </button>
-      </div>
+      <ButtonsGroup
+        className="Card-buttons-group"
+        setParentState={setPedidoValue}
+      />
       <div className="Pedido">
         <label>Cantidad</label>
         <input
