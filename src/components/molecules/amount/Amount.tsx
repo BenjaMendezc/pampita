@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useMemo, useState } from "react";
 import { ReactElementBaseProps } from "../../../types/global";
 import "./Amount.scss";
 
@@ -7,11 +7,17 @@ interface AmountProps extends ReactElementBaseProps {
 }
 
 function Amount({ stock, className }: AmountProps): ReactElement {
-  return (
-    <div className={className}>
+  const [isOpen, setIsOpen] = useState(false);
+
+  const dinamicAmount = useMemo(() => {
+    return isOpen ? (
+      <div>input</div>
+    ) : (
       <p className="Amount-display">{stock}</p>
-    </div>
-  );
+    );
+  }, [isOpen, stock]);
+
+  return <div className={className}>{dinamicAmount}</div>;
 }
 
 export default Amount;
