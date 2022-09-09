@@ -5,6 +5,7 @@ import { useDoubleTap } from "use-double-tap";
 import Title from "../../molecules/title/Title";
 import Amount from "../../molecules/amount/Amount";
 import { ButtonsGroup } from "../../molecules/buttonsGroup/ButtonsGroup";
+import { Cantidad } from "../../molecules/Cantidad/Cantidad";
 
 type CardProps = {
   name: string;
@@ -58,19 +59,7 @@ export const Card = ({ name }: CardProps): ReactElement => {
         className="Card-buttons-group"
         setParentState={setPedidoValue}
       />
-      <div className="Pedido">
-        <label>Cantidad</label>
-        <input
-          type="number"
-          min="0"
-          step="1"
-          max="25"
-          value={pedidoValue}
-          onChange={(e) => {
-            setPedidoValue(parseInt(e.target.value));
-          }}
-        />
-      </div>
+      <Cantidad className="Pedido" copy='Cantidad' value={pedidoValue} handleChange={setPedidoValue} />
     </div>
   );
 };
