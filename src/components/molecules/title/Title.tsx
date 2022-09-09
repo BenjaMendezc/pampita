@@ -7,7 +7,7 @@ interface TitleProps extends ReactElementBaseProps {}
 function Title({ copy, className, style }: TitleProps): ReactElement {
   return (
     <div className={className} style={style}>
-      <div className="Title__text">{copy}</div>
+      <h1 className="Title__text">{copy}</h1>
     </div>
   );
 }
