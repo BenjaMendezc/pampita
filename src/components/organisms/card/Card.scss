@@ -1,6 +1,5 @@
 @use "/src/styles/mixins/_position.scss" as *;
 @use "/src/styles/mixins/size" as *;
-@use "/src/styles/mixins/_position.scss" as *;
 
 .Card {
   display: flex;
@@ -21,10 +20,12 @@
 
     .Card-body__amount {
       display: flex;
-      @include position(0);
       align-items: center;
-      justify-content: center;
       background-color: blue;
+      justify-content: center;
+      color: #fff;
+      font-size: 2.3rem;
+      font-weight: bold;
     }
 
     .Card-body__title {

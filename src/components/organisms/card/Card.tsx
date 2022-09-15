@@ -11,6 +11,7 @@ type CardProps = {
 };
 
 export const Card = ({ name }: CardProps): ReactElement => {
+  const [isOpen, setIsOpen] = useState(false);
   const [amount, setAmount] = useState<number>(25);
   const [pedidoValue, setPedidoValue] = useState<number>(0);
 
@@ -47,7 +48,7 @@ export const Card = ({ name }: CardProps): ReactElement => {
   return (
     <div className="Card">
       <div className="Card-body" {...handleTap}>
-        <Amount stock={amount} className="Card-body__amount" />
+        <Amount stock={amount} className="Card-body__amount" isOpen={isOpen} />
         <Title
           copy={name}
           className="Card-body__title"
