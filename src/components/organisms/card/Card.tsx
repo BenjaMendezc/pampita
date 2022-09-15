@@ -1,4 +1,11 @@
-import React, { ReactElement, useMemo, useState, useRef, useEffect } from "react";
+//TODO: remover useEffect si no se usa
+import React, {
+  ReactElement,
+  useMemo,
+  useState,
+  useRef,
+  useEffect,
+} from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
 
@@ -46,8 +53,16 @@ export const Card = ({ name }: CardProps): ReactElement => {
     }
   );
 
-  const gustoRef = useRef(0)
+  // la referencia es al elemento input, no a su value OJO!
+  // el value lo sacamos de gustoRef.current, pero gustoRef es un HTMLInputElement, no un number
 
+  const gustoRef = useRef(0);
+  // mmm este nombree gustoRef mmm...
+  // distribucion del tiempo de un programador:
+  // 10% codear
+  // 40% leer codigo
+  // 50% pensar nombres de constantes
+  // cuanto tiempo pasaste pensando este nombre??
 
   return (
     <div className="Card">
@@ -63,11 +78,16 @@ export const Card = ({ name }: CardProps): ReactElement => {
         className="Card-buttons-group"
         setParentState={setPedidoValue}
       />
-      <Cantidad className="Pedido" copy='Cantidad' value={pedidoValue} handleChange={setPedidoValue} gusto={gustoRef} />
+      <Cantidad
+        className="Pedido"
+        copy="Cantidad"
+        value={pedidoValue}
+        handleChange={setPedidoValue}
+        // esta prop podria tener un nombre mas descriptivo, sino dentro de Cantidad se puede confundir su funcion
+        // quizas gustoRef podria llamarse inputRef y gusto llamarse solo ref, que te parece?
+        gusto={gustoRef}
+      />
       <p> tot = {gustoRef.current}</p>
     </div>
   );
-
-
-
 };
