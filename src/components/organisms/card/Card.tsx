@@ -1,4 +1,4 @@
-import React, { ReactElement, useMemo, useState } from "react";
+import React, { ReactElement, useMemo, useState, useRef, useEffect } from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
 
@@ -9,6 +9,7 @@ import { Cantidad } from "../../molecules/Cantidad/Cantidad";
 
 type CardProps = {
   name: string;
+  gusto: any;
 };
 
 export const Card = ({ name }: CardProps): ReactElement => {
@@ -45,6 +46,9 @@ export const Card = ({ name }: CardProps): ReactElement => {
     }
   );
 
+  const gustoRef = useRef(0)
+
+
   return (
     <div className="Card">
       <div className="Card-body" {...handleTap}>
@@ -59,7 +63,11 @@ export const Card = ({ name }: CardProps): ReactElement => {
         className="Card-buttons-group"
         setParentState={setPedidoValue}
       />
-      <Cantidad className="Pedido" copy='Cantidad' value={pedidoValue} handleChange={setPedidoValue} />
+      <Cantidad className="Pedido" copy='Cantidad' value={pedidoValue} handleChange={setPedidoValue} gusto={gustoRef} />
+      <p> tot = {gustoRef.current}</p>
     </div>
   );
+
+
+
 };

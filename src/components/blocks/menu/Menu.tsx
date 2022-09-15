@@ -7,7 +7,7 @@ export const Menu = (): ReactElement => {
   return (
     <div className="Menu-container">
       {data.map((empanada) => {
-        return <Card name={empanada.name} />;
+        return <Card name={empanada.name} gusto={null} />;
       })}
       <div>total=</div>
     </div>
