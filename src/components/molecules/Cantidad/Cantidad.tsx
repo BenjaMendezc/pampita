@@ -31,7 +31,7 @@ export const Cantidad = ({
         max="25"
         value={value}
         //la forma correcta de obtener el value de un input con una ref es
-        //pasando la ref al input y buscando su value con ref.current.value
+        //pasando la ref al input y buscando su value en el parent con ref.current.value
         //ref={* ?? *}
         onChange={(e) => {
           handleChange(parseInt(e.target.value));
