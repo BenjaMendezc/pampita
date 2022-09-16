@@ -9,6 +9,7 @@ import { Cantidad } from "../../molecules/Cantidad/Cantidad";
 
 type CardProps = {
   name: string;
+  gusto: any;
 };
 
 export const Card = ({ name }: CardProps): ReactElement => {
@@ -59,7 +60,12 @@ export const Card = ({ name }: CardProps): ReactElement => {
         className="Card-buttons-group"
         setParentState={setPedidoValue}
       />
-      <Cantidad className="Pedido" copy='Cantidad' value={pedidoValue} handleChange={setPedidoValue} />
+      <Cantidad
+        className="Pedido"
+        copy="Cantidad"
+        value={pedidoValue}
+        handleChange={setPedidoValue}
+      />
     </div>
   );
 };
