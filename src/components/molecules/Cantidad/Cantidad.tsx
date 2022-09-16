@@ -3,8 +3,7 @@ import { ReactElementBaseProps } from "../../../types/global";
 
 interface CantidadProps extends ReactElementBaseProps {
   value: number;
-  handleChange: any;
-  gusto: any;
+  handleChange: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const Cantidad = ({
@@ -12,7 +11,6 @@ export const Cantidad = ({
   copy,
   value,
   handleChange,
-  gusto,
 }: CantidadProps): ReactElement => {
   // qui dovrebbe ritornare il current pero ovviamnete in un componente non posso ritornare diue cose
   //quindi dovrei fare un altro componente chiamato da cantidada o da card per leggere il current
@@ -24,20 +22,15 @@ export const Cantidad = ({
   return (
     <div className={className}>
       <label>{copy}</label>
+
       <input
         type="number"
         min="0"
         step="1"
         max="25"
         value={value}
-        //la forma correcta de obtener el value de un input con una ref es
-        //pasando la ref al input y buscando su value en el parent con ref.current.value
-        //ref={* ?? *}
         onChange={(e) => {
           handleChange(parseInt(e.target.value));
-          //si se pasa una ref al input no es necesario
-          //cambiarlo manualmente en el onChange
-          gusto.current = parseInt(e.target.value);
         }}
       />
     </div>
