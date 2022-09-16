@@ -16,6 +16,15 @@ export const Card = ({ name }: CardProps): ReactElement => {
   const [amount, setAmount] = useState<number>(25);
   const [pedidoValue, setPedidoValue] = useState<number>(0);
 
+  // 1- MENU/ crear boton
+  // 2- CARD/ crear f() que reste pedidoValue a amount (verision simple) y setear amount al nuevo valor
+  // 3- MENU/ crear ref
+  // 4- CARD/ transformar react component en forward ref
+  // 5- CARD/ crear el hook useImperativeHandle
+  // 6- CARD/ mover la f() creada en el punto 2 dentro del nuevo hook (imperativeHandle)
+  // 7- MENU/ agregar ref.current al onclick del button
+  // https://bobbyhadz.com/blog/react-call-function-in-child-component
+
   const warningColor = useMemo(() => {
     if (amount === 0) return "red";
 
