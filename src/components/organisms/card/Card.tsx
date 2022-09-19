@@ -9,12 +9,18 @@ import { Cantidad } from "../../molecules/Cantidad/Cantidad";
 
 type CardProps = {
   name: string;
+  price: any;
 };
 
-export const Card = forwardRef(({name}:CardProps , ref) => {
 
+export const Card = forwardRef(({name, price}:CardProps , ref) => {
+
+  useImperativeHandle(ref, () => ({
+    setRestedAmount() {
+    setAmount((prevState) => prevState - pedidoValue);
+    setPedidoValue(0)
+  }}))
   
- 
   const [amount, setAmount] = useState<number>(25);
   const [pedidoValue, setPedidoValue] = useState<number>(0);
 
@@ -56,11 +62,6 @@ export const Card = forwardRef(({name}:CardProps , ref) => {
       onSingleTap: decreaseAmount,
     }
   );
-  useImperativeHandle(ref, () => ({
-    setRestedAmount () {
-    setAmount((prevState) => prevState - pedidoValue);
-    setPedidoValue(0)
-}}))
 
   return (
     <div className="Card">
@@ -82,6 +83,9 @@ export const Card = forwardRef(({name}:CardProps , ref) => {
         value={pedidoValue}
         handleChange={setPedidoValue}
       />
+      <div>
+      <p>{pedidoValue*price}</p>
+    </div>
     </div>
   );
   });
