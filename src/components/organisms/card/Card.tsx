@@ -1,4 +1,10 @@
-import React, { ReactElement, useMemo, useState,forwardRef,useImperativeHandle } from "react";
+import React, {
+  ReactElement,
+  useMemo,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
 
@@ -12,15 +18,15 @@ type CardProps = {
   price: any;
 };
 
-
-export const Card = forwardRef(({name, price}:CardProps , ref) => {
-
+export const Card = forwardRef(({ name, price }: CardProps, ref) => {
   useImperativeHandle(ref, () => ({
     setRestedAmount() {
-    setAmount((prevState) => prevState - pedidoValue);
-    setPedidoValue(0)
-  }}))
-  
+      // y si el resultado es menos que el stock?? que facciamo??
+      setAmount((prevState) => prevState - pedidoValue);
+      setPedidoValue(0);
+    },
+  }));
+
   const [amount, setAmount] = useState<number>(25);
   const [pedidoValue, setPedidoValue] = useState<number>(0);
 
@@ -84,8 +90,8 @@ export const Card = forwardRef(({name, price}:CardProps , ref) => {
         handleChange={setPedidoValue}
       />
       <div>
-      <p>{pedidoValue*price}</p>
-    </div>
+        <p>{pedidoValue * price}</p>
+      </div>
     </div>
   );
-  });
+});
