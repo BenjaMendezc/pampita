@@ -4,7 +4,7 @@ import data from "./mock/data";
 import "./Menu.scss";
 
 export const Menu = (): ReactElement => {
-  //no es el type correcto
+  //no era el type correcto, por ahora lo dejamos en any porque yo tampoco lo se je.
   const childRef = useRef<any>(null);
 
   const handleComandaClick = () => {
