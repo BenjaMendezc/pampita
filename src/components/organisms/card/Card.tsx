@@ -1,7 +1,6 @@
-import React, { ReactElement, useMemo, useState } from "react";
+import { ReactElement, useMemo, useState } from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
-
 import Title from "../../molecules/title/Title";
 import Amount from "../../molecules/amount/Amount";
 import { ButtonsGroup } from "../../molecules/buttonsGroup/ButtonsGroup";
@@ -11,7 +10,6 @@ type CardProps = {
 };
 
 export const Card = ({ name }: CardProps): ReactElement => {
-  const [isOpen, setIsOpen] = useState(false);
   const [amount, setAmount] = useState<number>(25);
   const [pedidoValue, setPedidoValue] = useState<number>(0);
 
@@ -47,19 +45,16 @@ export const Card = ({ name }: CardProps): ReactElement => {
 
   return (
     <div className="Card">
-      <div className="Card-body" {...handleTap}>
-        <Amount stock={amount} className="Card-body__amount" isOpen={isOpen} />
-        <Title
-          copy={name}
-          className="Card-body__title"
-          style={{ backgroundColor: warningColor }}
-        />
-      </div>
-      <ButtonsGroup
-        className="Card-buttons-group"
-        setParentState={setPedidoValue}
+      <Title
+        copy={name}
+        className="Card-title"
+        style={{ backgroundColor: warningColor }}
+        {...handleTap}
       />
-      <div className="Pedido">
+      <div className="Card-body"></div>
+      <Amount stock={amount} />
+      <ButtonsGroup className="Buttons-group" setParentState={setPedidoValue} />
+      <div className="Comanda">
         <label>Cantidad</label>
         <input
           type="number"

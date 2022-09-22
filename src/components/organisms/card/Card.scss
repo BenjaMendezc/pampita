@@ -1,57 +1,65 @@
 @use "/src/styles/mixins/_position.scss" as *;
 @use "/src/styles/mixins/size" as *;
+@use "/src/styles/mixins/respond-to" as *;
 
 .Card {
   display: flex;
   width: 45rem;
   height: 4.4rem;
-  border: 0.1rem solid black;
   border-radius: 0.2rem;
   flex-direction: row;
+
+  @include respond-to(min768) {
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .Color-bar__amount-container {
+    max-width: 100%;
+  }
 
   .Card-body {
     display: flex;
     width: 30rem;
     height: 4.4rem;
-    border: 0.1rem solid black;
     border-radius: 0.2rem;
     flex-direction: row;
     user-select: none;
-
-    .Card-body__amount {
-      display: flex;
-      align-items: center;
-      background-color: blue;
-      justify-content: center;
-      color: #fff;
-      font-size: 2.3rem;
-      font-weight: bold;
+    @include respond-to(min768) {
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
     }
-
     .Card-body__title {
       display: flex;
       align-items: center;
       justify-content: center;
-      @include size(100%);
+      height: 80%;
       color: #000;
       font-size: 2.3rem;
       font-weight: bold;
     }
+    .Comanda {
+      display: flex;
+      width: 10rem;
+      height: 4.4rem;
+      border: 0.1rem solid black;
+      background-color: rgb(0, 255, 255);
+      border-radius: 0.2rem;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
   }
-
-  .Card-buttons-group {
-    display: flex;
-  }
-
-  .Pedido {
-    display: flex;
-    width: 10rem;
-    height: 4.4rem;
-    border: 0.1rem solid black;
-    background-color: rgb(0, 255, 255);
-    border-radius: 0.2rem;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  .Card-body__footer {
+    @include respond-to(min768) {
+      .Footer__buttons-group-container {
+        width: 100%;
+        .Buttons-group {
+          display: flex;
+          width: 100%;
+        }
+      }
+    }
   }
 }

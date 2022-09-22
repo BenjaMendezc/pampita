@@ -1,13 +1,13 @@
-import React, { ReactElement, useMemo } from "react";
+import React, { ReactElement, useMemo, useState } from "react";
 import { ReactElementBaseProps } from "../../../types/global";
 import "./Amount.scss";
 
 interface AmountProps extends ReactElementBaseProps {
   stock: number;
-  isOpen: boolean;
 }
 
-function Amount({ stock, className, isOpen }: AmountProps): ReactElement {
+function Amount({ stock }: AmountProps): ReactElement {
+  const [isOpen, setIsopen] = useState(false);
   const dinamicComponent = useMemo(() => {
     return isOpen ? (
       <input type="text" className="Amount-input" />
@@ -17,7 +17,7 @@ function Amount({ stock, className, isOpen }: AmountProps): ReactElement {
   }, [isOpen, stock]);
 
   return (
-    <div className={className}>
+    <div className="Amount">
       <div className="Amount__dinamic-container">{dinamicComponent}</div>
     </div>
   );
