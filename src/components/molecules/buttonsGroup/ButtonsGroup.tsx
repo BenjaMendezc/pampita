@@ -1,6 +1,7 @@
 import { Dispatch, ReactElement, SetStateAction } from "react";
 import { ReactElementBaseProps } from "../../../types/global";
 import "./ButtonsGroup.scss";
+import { Button } from "../../atoms/button/Button";
 
 interface ButtonsGroupProps extends ReactElementBaseProps {
   setParentState: Dispatch<SetStateAction<number>>;
@@ -24,12 +25,8 @@ export const ButtonsGroup = ({
 
   return (
     <div className={className}>
-      <button className="Docena" onClick={docenaHandler}>
-        Docena
-      </button>
-      <button className="Mediadocena" onClick={mediadocenaHandler}>
-        1/2 Docena
-      </button>
+      <Button className="Docena" handleClick={docenaHandler} copy={'docena'}></Button>
+      <Button className="Mediadocena" handleClick={mediadocenaHandler} copy={'1/2 docena'}></Button>
     </div>
   );
 };

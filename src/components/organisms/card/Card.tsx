@@ -4,9 +4,11 @@ import { useDoubleTap } from "use-double-tap";
 import Title from "../../molecules/title/Title";
 import Amount from "../../molecules/amount/Amount";
 import { ButtonsGroup } from "../../molecules/buttonsGroup/ButtonsGroup";
+import { Cantidad } from "../../molecules/Cantidad/Cantidad";
 
 type CardProps = {
   name: string;
+  gusto: any;
 };
 
 export const Card = ({ name }: CardProps): ReactElement => {
