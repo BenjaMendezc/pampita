@@ -4,7 +4,7 @@
 
 .Card {
   width: 32rem;
-  height: 13rem;
+  height: 11rem;
   display: flex;
   flex-direction: column;
   background-color: #2d2d2f;
@@ -14,8 +14,6 @@
     font-size: x-large;
     font-weight: bold;
     border: 0.3rem solid #fbba27;
-    background-color: #2d2d2f;
-    color: white;
   }
   .Card-body {
     display: flex;
@@ -35,7 +33,6 @@
       color: white;
       font-size: medium;
       border: 0.3rem solid #fbba27;
-      background-color: #2d2d2f;
     }
   }
 }

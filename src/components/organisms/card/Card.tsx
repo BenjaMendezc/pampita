@@ -23,19 +23,26 @@ export const Card = forwardRef(({ name, price }: CardProps, ref) => {
   const [pedidoValue, setPedidoValue] = useState<number>(0);
 
   const warningColor = useMemo(() => {
-    if (amount === 0) return "red";
+    const warningStyles = {
+      backgroundColor: "",
+      fontColor: "#fcfcfc",
+    };
 
-    let warningLevel;
+    if (amount === 0) {
+      warningStyles.backgroundColor = "red";
+      return warningStyles;
+    }
 
     if (amount > 12) {
-      warningLevel = "#2d2d2f";
+      warningStyles.backgroundColor = "#2d2d2f";
     } else {
-      warningLevel = "#fff300";
+      warningStyles.backgroundColor = "#fff300";
+      warningStyles.fontColor = "#2d2d2f";
     }
 
     // const warningLevel = amount > 12 ? "#78fac8" : "#fff300";
 
-    return warningLevel;
+    return warningStyles;
   }, [amount]);
 
   const decreaseAmount = () => {
@@ -57,7 +64,10 @@ export const Card = forwardRef(({ name, price }: CardProps, ref) => {
       <Title
         copy={name}
         className="Card-title"
-        style={{ backgroundColor: warningColor }}
+        style={{
+          backgroundColor: warningColor.backgroundColor,
+          color: warningColor.fontColor,
+        }}
         {...handleTap}
       />
       <div className="Card-body">
