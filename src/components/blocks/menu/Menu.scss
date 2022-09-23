@@ -3,12 +3,15 @@
 
 .Menu-container {
   display: flex;
-  position: absolute;
   align-items: center;
   flex-direction: column;
-  top: 2rem;
-  left: 0.5rem;
   gap: 1rem;
+
+  @include respond-to(min768) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 }
 
 .Comanda-total {
