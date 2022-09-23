@@ -5,30 +5,32 @@
 .Amount_body {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   background-color: #2d2d2f;
-  justify-content: center;
   color: #fff;
   border: 0.3rem solid #fbba27;
   flex-direction: column;
-  height: 75%;
+  height: fit-content;
 
   .Amount__title {
-    font-size: 1.2rem;
-    height: 20%;
-  }
-  .Amount {
-    font-size: 2.3rem;
-    font-weight: bold;
+    font-size: 1.3rem;
+    height: 40%;
   }
 
   .Amount__dinamic-container {
+    font-size: 2.3rem;
+    font-weight: bold;
     .Amount-display {
-      padding: 0.5rem;
+      padding-bottom: 2rem;
     }
 
     .Amount-input {
       all: unset;
       width: 15rem;
+    }
+
+    p {
+      margin: 0;
     }
   }
 }

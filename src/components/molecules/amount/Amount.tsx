@@ -19,9 +19,8 @@ function Amount({ stock }: AmountProps): ReactElement {
   return (
     <div className="Amount_body">
       <p className="Amount__title">Stock</p>
-      <div className="Amount">
       <div className="Amount__dinamic-container">{dinamicComponent}</div>
-    </div></div>
+    </div>
   );
 }
 
