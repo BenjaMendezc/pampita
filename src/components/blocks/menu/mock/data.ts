@@ -43,6 +43,34 @@ const data = [
     name: "Gran Pampita",
     price: 50,
   },
+  {
+    name: "Gran Pampita",
+    price: 50,
+  },
+  {
+    name: "Gran Pampita",
+    price: 50,
+  },
+  {
+    name: "Gran Pampita",
+    price: 50,
+  },
+  {
+    name: "Gran Pampita",
+    price: 50,
+  },
+  {
+    name: "Gran Pampita",
+    price: 50,
+  },
+  {
+    name: "Gran Pampita",
+    price: 50,
+  },
+  {
+    name: "Gran Pampita",
+    price: 50,
+  },
 ];
 
 export default data;

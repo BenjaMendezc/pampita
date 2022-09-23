@@ -52,6 +52,10 @@ export const Card = forwardRef(({ name, price }: CardProps, ref) => {
     }
   );
 
+  // #333538fa pizarra? maybe?
+  // #faba33 Pregato
+  // ##fcfcfc bianco
+
   return (
     <div className="Card">
       <Title
