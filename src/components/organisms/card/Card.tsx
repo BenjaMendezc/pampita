@@ -53,20 +53,19 @@ export const Card = ({ name }: CardProps): ReactElement => {
         style={{ backgroundColor: warningColor }}
         {...handleTap}
       />
-      <div className="Card-body"></div>
-      <Amount stock={amount} />
-      <ButtonsGroup className="Buttons-group" setParentState={setPedidoValue} />
-      <div className="Comanda">
-        <label>Cantidad</label>
-        <input
-          type="number"
-          min="0"
-          step="1"
-          max="25"
+      <div className="Card-body">
+        <div className="Body__amount-container">
+          <Amount stock={amount} />
+        </div>
+        <ButtonsGroup
+          className="Buttons-group"
+          setParentState={setPedidoValue}
+        />
+        <Cantidad
+          className="Cantidad"
+          copy="Cantidad"
           value={pedidoValue}
-          onChange={(e) => {
-            setPedidoValue(parseInt(e.target.value));
-          }}
+          handleChange={setPedidoValue}
         />
       </div>
     </div>
