@@ -1,4 +1,10 @@
-import React, { ReactElement, useMemo, useState } from "react";
+import React, {
+  ReactElement,
+  useMemo,
+  useState,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
 
@@ -9,12 +15,29 @@ import { Cantidad } from "../../molecules/Cantidad/Cantidad";
 
 type CardProps = {
   name: string;
-  gusto: any;
+  price: any;
 };
 
-export const Card = ({ name }: CardProps): ReactElement => {
+export const Card = forwardRef(({ name, price }: CardProps, ref) => {
+  useImperativeHandle(ref, () => ({
+    setRestedAmount() {
+      // y si el resultado es menos que el stock?? que facciamo??
+      setAmount((prevState) => prevState - pedidoValue);
+      setPedidoValue(0);
+    },
+  }));
+
   const [amount, setAmount] = useState<number>(25);
   const [pedidoValue, setPedidoValue] = useState<number>(0);
+
+  //// 1- MENU/ crear boton
+  //// 2- CARD/ crear f() que reste pedidoValue a amount (verision simple) y setear amount al nuevo valor
+  //// 3- MENU/ crear ref
+  //// 4- CARD/ transformar react component en forward ref
+  //// 5- CARD/ crear el hook useImperativeHandle
+  //// 6- CARD/ mover la f() creada en el punto 2 dentro del nuevo hook (imperativeHandle)
+  // 7- MENU/ agregar ref.current al onclick del button
+  // https://bobbyhadz.com/blog/react-call-function-in-child-component
 
   const warningColor = useMemo(() => {
     if (amount === 0) return "red";
@@ -66,6 +89,9 @@ export const Card = ({ name }: CardProps): ReactElement => {
         value={pedidoValue}
         handleChange={setPedidoValue}
       />
+      <div>
+        <p>{pedidoValue * price}</p>
+      </div>
     </div>
   );
-};
+});
