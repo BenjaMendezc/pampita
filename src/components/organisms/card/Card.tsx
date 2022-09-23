@@ -28,7 +28,7 @@ export const Card = forwardRef(({ name, price }: CardProps, ref) => {
     let warningLevel;
 
     if (amount > 12) {
-      warningLevel = "#78fac8";
+      warningLevel = "#2d2d2f";
     } else {
       warningLevel = "#fff300";
     }

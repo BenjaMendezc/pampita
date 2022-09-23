@@ -1,19 +1,10 @@
-.Docena {
+.Buttons {
   display: flex;
-  border: 0.1rem solid black;
-  background-color: orange;
-  border-radius: 0.2rem;
+  border: 0.3rem solid #fbba27;
+  background-color: #2d2d2f;
   align-items: center;
   justify-content: center;
   width: 50%;
-}
-
-.Mediadocena {
-  width: 50%;
-  display: flex;
-  border: 0.1rem solid black;
-  background-color: rgba(255, 123, 0, 0.829);
-  border-radius: 0.2rem;
-  align-items: center;
-  justify-content: center;
+  color: white;
+  font-size: medium;
 }

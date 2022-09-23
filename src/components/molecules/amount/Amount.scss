@@ -2,14 +2,24 @@
 @use "/src/styles/mixins/size" as *;
 @use "/src/styles/mixins/_position.scss" as *;
 
-.Amount {
+.Amount_body {
   display: flex;
   align-items: center;
-  background-color: blue;
+  background-color: #2d2d2f;
   justify-content: center;
   color: #fff;
-  font-size: 2.3rem;
-  font-weight: bold;
+  border: 0.3rem solid #fbba27;
+  flex-direction: column;
+  height: 75%;
+
+  .Amount__title {
+    font-size: 1.2rem;
+    height: 20%;
+  }
+  .Amount {
+    font-size: 2.3rem;
+    font-weight: bold;
+  }
 
   .Amount__dinamic-container {
     .Amount-display {

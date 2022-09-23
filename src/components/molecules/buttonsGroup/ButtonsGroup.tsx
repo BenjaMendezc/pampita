@@ -25,8 +25,8 @@ export const ButtonsGroup = ({
 
   return (
     <div className={className}>
-      <Button className="Docena" handleClick={docenaHandler} copy={'docena'}></Button>
-      <Button className="Mediadocena" handleClick={mediadocenaHandler} copy={'1/2 docena'}></Button>
+      <Button className="Buttons" handleClick={docenaHandler} copy={'docena'}></Button>
+      <Button className="Buttons" handleClick={mediadocenaHandler} copy={'1/2 docena'}></Button>
     </div>
   );
 };
