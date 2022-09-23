@@ -1,4 +1,4 @@
-import { ReactElement, useMemo, useState } from "react";
+import { useMemo, useState, forwardRef, useImperativeHandle } from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
 import Title from "../../molecules/title/Title";
@@ -8,10 +8,17 @@ import { Cantidad } from "../../molecules/Cantidad/Cantidad";
 
 type CardProps = {
   name: string;
-  gusto: any;
+  price: any;
 };
 
-export const Card = ({ name }: CardProps): ReactElement => {
+export const Card = forwardRef(({ name, price }: CardProps, ref) => {
+  useImperativeHandle(ref, () => ({
+    setRestedAmount() {
+      setAmount((prevState) => prevState - pedidoValue);
+      setPedidoValue(0);
+    },
+  }));
+
   const [amount, setAmount] = useState<number>(25);
   const [pedidoValue, setPedidoValue] = useState<number>(0);
 
@@ -70,4 +77,4 @@ export const Card = ({ name }: CardProps): ReactElement => {
       </div>
     </div>
   );
-};
+});
