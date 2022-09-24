@@ -56,7 +56,7 @@ const data = [
     price: 50,
   },
   {
-    name: "Hongos&Cebolla/Patagonia",
+    name: "H&C/Patagonia",
     price: 50,
   },
   {

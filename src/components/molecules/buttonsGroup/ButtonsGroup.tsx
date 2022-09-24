@@ -4,28 +4,30 @@ import "./ButtonsGroup.scss";
 import { Button } from "../../atoms/button/Button";
 
 interface ButtonsGroupProps extends ReactElementBaseProps {
-  setParentState: Dispatch<SetStateAction<number>>;
+  setAmountState: Dispatch<SetStateAction<number>>;
+  stock: any;
 }
 
 export const ButtonsGroup = ({
   className,
-  setParentState,
+  setAmountState,
+  stock,
 }: ButtonsGroupProps): ReactElement => {
   const docenaHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log("sumaste 1 docena");
-    setParentState((prevState) => prevState + 12);
+    if(stock >= 12)
+    setAmountState((prevState) => prevState - 12);
   };
 
   const mediadocenaHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log("sumaste 1/2 docena");
-    setParentState((prevState) => prevState + 6);
+    if(stock >= 6)
+    setAmountState((prevState) => prevState - 6);
   };
 
   return (
     <div className={className}>
-      <Button className="Buttons" handleClick={docenaHandler} copy={'docena'}></Button>
+      <Button className="Buttons" handleClick={docenaHandler} copy={'docena'} ></Button>
       <Button className="Buttons" handleClick={mediadocenaHandler} copy={'1/2 docena'}></Button>
     </div>
   );

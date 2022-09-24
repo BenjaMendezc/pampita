@@ -1,4 +1,4 @@
-import { useMemo, useState, forwardRef, useImperativeHandle } from "react";
+import { useMemo, useState } from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
 import Title from "../../molecules/title/Title";
@@ -11,16 +11,9 @@ type CardProps = {
   price: any;
 };
 
-export const Card = forwardRef(({ name, price }: CardProps, ref) => {
-  useImperativeHandle(ref, () => ({
-    setRestedAmount() {
-      setAmount((prevState) => prevState - pedidoValue);
-      setPedidoValue(0);
-    },
-  }));
+export const Card = ({ name, price }: CardProps) => {
 
   const [amount, setAmount] = useState<number>(25);
-  const [pedidoValue, setPedidoValue] = useState<number>(0);
 
   const warningColor = useMemo(() => {
     const warningStyles = {
@@ -76,15 +69,10 @@ export const Card = forwardRef(({ name, price }: CardProps, ref) => {
         </div>
         <ButtonsGroup
           className="Buttons-group"
-          setParentState={setPedidoValue}
-        />
-        <Cantidad
-          className="Cantidad"
-          copy="Cantidad"
-          value={pedidoValue}
-          handleChange={setPedidoValue}
+          setAmountState={setAmount}
+          stock={amount}
         />
       </div>
     </div>
   );
-});
+};
