@@ -12,7 +12,6 @@ type CardProps = {
 };
 
 export const Card = ({ name, price }: CardProps) => {
-
   const [amount, setAmount] = useState<number>(25);
 
   const warningColor = useMemo(() => {
@@ -63,16 +62,14 @@ export const Card = ({ name, price }: CardProps) => {
         }}
         {...handleTap}
       />
-      <div className="Card-body">
-        <div className="Body__amount-container">
-          <Amount stock={amount} />
-        </div>
-        <ButtonsGroup
-          className="Buttons-group"
-          setAmountState={setAmount}
-          stock={amount}
-        />
+      <div className="Body__amount-container">
+        <Amount stock={amount} />
       </div>
+      <ButtonsGroup
+        className="Buttons-group"
+        setAmountState={setAmount}
+        stock={amount}
+      />
     </div>
   );
 };
