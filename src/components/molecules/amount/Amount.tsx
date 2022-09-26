@@ -1,4 +1,4 @@
-import React, { ReactElement, useMemo, useState } from "react";
+import React, { ReactElement, useMemo, useState,useRef } from "react";
 import { ReactElementBaseProps } from "../../../types/global";
 import "./Amount.scss";
 
@@ -8,11 +8,13 @@ interface AmountProps extends ReactElementBaseProps {
 
 function Amount({ stock }: AmountProps): ReactElement {
   const [isOpen, setIsopen] = useState(false);
-  const dinamicComponent = useMemo(() => {
-    return isOpen ? (
-      <input className="Amount-input" />
-    ) : (
-      <p className="Amount-display">{stock}</p>
+  const ref: any =useRef(null)
+
+ const dinamicComponent = useMemo(() => {
+  return isOpen ? (
+   <input type="text" className="Amount-input" value={stock} ref={ref}/>
+   ) : (
+     <p className="Amount-display">{stock}</p>
     );
   }, [isOpen, stock]);
 
@@ -23,15 +25,17 @@ function Amount({ stock }: AmountProps): ReactElement {
   //     open = true
   //   }, 2000)
   // }
-
+  
   const handleClick=()=>{
-    setIsopen(!isOpen)
+   setIsopen(!isOpen)
+    ref.current.focus();
+   // stock=ref.current.value; // por ahi aca tengo que usar un usestate....
   }
 
   return (
     <div className="Amount_body" >
-      <div className="Amount__dinamic-container" >
-        {dinamicComponent}
+      <div className="Amount__dinamic-container" onClick={handleClick} >
+{dinamicComponent}
         </div>
     </div>
   );
