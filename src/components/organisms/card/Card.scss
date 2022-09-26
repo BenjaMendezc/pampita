@@ -8,16 +8,25 @@
   display: flex;
   flex-direction: column;
   background-color: #2d2d2f;
+  border: 0.3rem solid #fbba27;
 
-  .Card-title {
+  .Card-title__container{
     height: 35%;
-    font-size: x-large;
-    font-weight: bold;
-    border: 0.3rem solid #fbba27;
+    border-bottom: 0.15rem solid #fbba27;
+
+    .Card-title {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: x-large;
+      font-weight: bold;
+    }
   }
   .Body__amount-container {
       width: 100%;
       height: 32.5%;
+      border-bottom: 0.15rem solid #fbba27;
     }
   .Buttons-group {
       display: flex;

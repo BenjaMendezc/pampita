@@ -45,7 +45,7 @@ export const Card = ({ name, price }: CardProps) => {
     (event) => {
       setAmount((prevState) => prevState + 1);
     },
-    200,
+    300,
     {
       onSingleTap: decreaseAmount,
     }
@@ -53,6 +53,7 @@ export const Card = ({ name, price }: CardProps) => {
 
   return (
     <div className="Card">
+      <div className="Card-title__container" {...handleTap}>
       <Title
         copy={name}
         className="Card-title"
@@ -60,8 +61,9 @@ export const Card = ({ name, price }: CardProps) => {
           backgroundColor: warningColor.backgroundColor,
           color: warningColor.fontColor,
         }}
-        {...handleTap}
+        
       />
+      </div>
       <div className="Body__amount-container">
         <Amount stock={amount} />
       </div>

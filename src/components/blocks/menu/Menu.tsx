@@ -10,7 +10,7 @@ export const Menu = (): ReactElement => {
       <div className="Menu-container">
         {data.map((empanada) => {
           return (
-            <Card name={empanada.name} price={empanada.price} />
+            <Card name={empanada.name} price={empanada.price} key={empanada.id}/>
           );
         })}
       </div>

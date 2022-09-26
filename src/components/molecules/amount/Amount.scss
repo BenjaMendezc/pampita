@@ -8,19 +8,20 @@
   justify-content: center;
   background-color: #2d2d2f;
   color: #fff;
-  border: 0.3rem solid #fbba27;
   flex-direction: row;
+height: 100%;
 
   .Amount__dinamic-container {
     font-size: 2.3rem;
     font-weight: bold;
-    .Amount-display {
-      padding-bottom: 2rem;
-    }
+  
 
     .Amount-input {
       all: unset;
       width: 15rem;
     }
+  }
+  p{
+    margin:0;
   }
 }

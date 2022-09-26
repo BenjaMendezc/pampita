@@ -1,70 +1,87 @@
 const data = [
   {
+    id: 1,
     name: "Clasica",
     price: 50,
   },
   {
+    id: 2,
     name: "Criolla",
     price: 50,
   },
   {
+    id: 3,
     name: "Picante",
     price: 50,
   },
   {
-    name: "Cuchillo",
-    price: 50,
-  },
-  {
+    id: 5,
     name: "Pollo",
     price: 50,
   },
   {
-    name: "Gran Pampita",
+    id: 4,
+    name: "Cuchillo",
     price: 50,
   },
   {
-    name: "Brie",
+    id: 7,
+    name: "Parrillera",
     price: 50,
   },
   {
+    id: 8,
     name: "Jamon Y Queso",
     price: 50,
   },
   {
-    name: "Roquefort",
-    price: 50,
-  },
-  {
+    id: 10,
     name: "Caprese",
     price: 50,
   }, 
   {
-    name: "Cebolla Y Queso",
+    id: 9,
+    name: "Roquefort",
     price: 50,
   },
   {
-    name: "Mix de Vegetales",
+    id: 6,
+    name: "Gran Pampita",
     price: 50,
   },
   {
-    name: "Espinaca/Popeye",
+    id: 15,
+    name: "H&C / Patagonia",
     price: 50,
   },
   {
+    id: 13,
+    name: "Espinaca / Popeye",
+    price: 50,
+  },
+  {
+    id: 14,
     name: "Zapallo",
     price: 50,
   },
   {
-    name: "H&C/Patagonia",
+    id: 11,
+    name: "Cebolla Y Queso",
     price: 50,
   },
   {
-    name: "Primavera",
+    id: 12,
+    name: "Mix de Vegetales",
+    price: 50,
+  },
+  {
+    id: 16,
+    name: "Brie",
     price: 50,
   }, 
   {
-    name: "Parillera",
+    id: 17,
+    name: "Primavera",
     price: 50,
   },
 ];

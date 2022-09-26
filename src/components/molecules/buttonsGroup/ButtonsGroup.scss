@@ -1,6 +1,16 @@
-.Buttons {
+.ButtonDoc {
   display: flex;
-  border: 0.3rem solid #fbba27;
+  border-right: 0.075rem solid #fbba27;
+  background-color: #2d2d2f;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  color: white;
+  font-size: medium;
+}
+.ButtonMediaDoc {
+  display: flex;
+  border-left: 0.075rem solid #fbba27;
   background-color: #2d2d2f;
   align-items: center;
   justify-content: center;
