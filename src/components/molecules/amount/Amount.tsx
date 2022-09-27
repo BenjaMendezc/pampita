@@ -9,19 +9,21 @@ interface AmountProps extends ReactElementBaseProps {
 function Amount({ stock }: AmountProps): ReactElement {
   const [isOpen, setIsopen] = useState(false);
   const ref: any =useRef()
+  const [newstock,setNewstock] = useState(stock)
   
   const handleValue =() => { 
     ref.current.focus();
-  stock=ref.current.value;
+    console.log(ref.current.value)
+    setNewstock(stock+ref.current.value);
 }
 
  const dinamicComponent = useMemo(() => {
   return isOpen ? (
    <input type="text" className="Amount-input" defaultValue={0} ref={ref} onClick={handleValue}/>
    ) : (
-     <p className="Amount-display">{stock}</p>
+     <p className="Amount-display">{newstock}</p>
     );
-  }, [isOpen, stock]);
+  }, [isOpen, newstock]);
 
   // const handleTouch = ()=>{
   //   // un callback es una funcion que se pasa como argumento de otra funcion
@@ -33,8 +35,6 @@ function Amount({ stock }: AmountProps): ReactElement {
   
   const handleClick=()=>{
    setIsopen(!isOpen)
-   
-   // stock=ref.current.value; // por ahi aca tengo que usar un usestate....
   }
 
   return (
