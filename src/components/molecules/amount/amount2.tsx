@@ -9,15 +9,10 @@ interface AmountProps extends ReactElementBaseProps {
 function Amount({ stock }: AmountProps): ReactElement {
   const [isOpen, setIsopen] = useState(false);
   const ref: any =useRef()
-  
-  const handleValue =() => { 
-    ref.current.focus();
-  stock=ref.current.value;
-}
 
  const dinamicComponent = useMemo(() => {
   return isOpen ? (
-   <input type="text" className="Amount-input" defaultValue={0} ref={ref} onClick={handleValue}/>
+   <input type="text" className="Amount-input" defaultValue={0} ref={ref}/>
    ) : (
      <p className="Amount-display">{stock}</p>
     );
@@ -33,7 +28,7 @@ function Amount({ stock }: AmountProps): ReactElement {
   
   const handleClick=()=>{
    setIsopen(!isOpen)
-   
+    ref.current.focus();
    // stock=ref.current.value; // por ahi aca tengo que usar un usestate....
   }
 
