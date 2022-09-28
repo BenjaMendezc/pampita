@@ -54,18 +54,17 @@ export const Card = ({ name, price }: CardProps) => {
   return (
     <div className="Card">
       <div className="Card-title__container" {...handleTap}>
-      <Title
-        copy={name}
-        className="Card-title"
-        style={{
-          backgroundColor: warningColor.backgroundColor,
-          color: warningColor.fontColor,
-        }}
-        
-      />
+        <Title
+          copy={name}
+          className="Card-title"
+          style={{
+            backgroundColor: warningColor.backgroundColor,
+            color: warningColor.fontColor,
+          }}
+        />
       </div>
       <div className="Body__amount-container">
-        <Amount stock={amount} />
+        <Amount stock={amount} setStock={setAmount} />
       </div>
       <ButtonsGroup
         className="Buttons-group"

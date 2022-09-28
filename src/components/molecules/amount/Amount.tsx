@@ -1,29 +1,30 @@
-import React, { ReactElement, useMemo, useState,useRef } from "react";
+import React, {
+  ReactElement,
+  useMemo,
+  useState,
+  useRef,
+  ChangeEvent,
+  useCallback,
+} from "react";
 import { ReactElementBaseProps } from "../../../types/global";
 import "./Amount.scss";
 
 interface AmountProps extends ReactElementBaseProps {
   stock: number;
+  setStock: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function Amount({ stock }: AmountProps): ReactElement {
-  const [isOpen, setIsopen] = useState(false);
-  const ref: any =useRef()
-  const [newstock,setNewstock] = useState(stock)
-  
-  const handleValue =() => { 
-    ref.current.focus();
-    //console.log(ref.current.value)
-    setNewstock(ref.current.value);
-}
+function Amount({ stock, setStock }: AmountProps): ReactElement {
+  const inputRef = useRef<HTMLInputElement>(null);
+  // const [newstock, setNewstock] = useState(stock);
 
- const dinamicComponent = useMemo(() => {
-  return isOpen ? (
-   <input type="text" className="Amount-input" defaultValue={stock} ref={ref} onClick={handleValue}/>
-   ) : (
-     <p className="Amount-display">{newstock}</p>
-    );
-  }, [isOpen, newstock]);
+  const handleValue = useCallback(
+    (event: React.FormEvent<HTMLInputElement>) => {
+      setStock(parseInt(event.currentTarget.value));
+      //console.log(ref.current.value)
+    },
+    [setStock]
+  );
 
   // const handleTouch = ()=>{
   //   // un callback es una funcion que se pasa como argumento de otra funcion
@@ -32,16 +33,18 @@ function Amount({ stock }: AmountProps): ReactElement {
   //     open = true
   //   }, 2000)
   // }
-  
-  const handleClick=()=>{
-   setIsopen(!isOpen)
-  }
 
   return (
-    <div className="Amount_body" >
-      <div className="Amount__dinamic-container" onClick={handleClick} >
-{dinamicComponent}
-        </div>
+    <div className="Amount_body">
+      <div className="Amount__dinamic-container">
+        <input
+          type="text"
+          className="Amount-input"
+          defaultValue={stock}
+          onChange={handleValue}
+          ref={inputRef}
+        />
+      </div>
     </div>
   );
 }
