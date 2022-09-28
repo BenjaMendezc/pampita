@@ -13,13 +13,13 @@ function Amount({ stock }: AmountProps): ReactElement {
   
   const handleValue =() => { 
     ref.current.focus();
-    console.log(ref.current.value)
+    //console.log(ref.current.value)
     setNewstock(ref.current.value);
 }
 
  const dinamicComponent = useMemo(() => {
   return isOpen ? (
-   <input type="text" className="Amount-input" defaultValue={0} ref={ref} onClick={handleValue}/>
+   <input type="text" className="Amount-input" defaultValue={stock} ref={ref} onClick={handleValue}/>
    ) : (
      <p className="Amount-display">{newstock}</p>
     );
