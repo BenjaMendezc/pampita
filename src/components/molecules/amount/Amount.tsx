@@ -14,7 +14,7 @@ function Amount({ stock }: AmountProps): ReactElement {
   const handleValue =() => { 
     ref.current.focus();
     console.log(ref.current.value)
-    setNewstock(stock+ref.current.value);
+    setNewstock(ref.current.value);
 }
 
  const dinamicComponent = useMemo(() => {
