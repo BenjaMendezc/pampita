@@ -1,49 +1,54 @@
-import React, { ReactElement, useMemo, useState,useRef } from "react";
+import React, { forwardRef, useImperativeHandle} from "react";
 import { ReactElementBaseProps } from "../../../types/global";
 import "./Amount.scss";
 
 interface AmountProps extends ReactElementBaseProps {
   stock: number;
+  setStock: React.Dispatch<React.SetStateAction<number>>;
 }
 
-function Amount({ stock }: AmountProps): ReactElement {
-  const [isOpen, setIsopen] = useState(false);
-  const ref: any =useRef()
-  const [newstock,setNewstock] = useState(stock)
-  
-  const handleValue =() => { 
-    ref.current.focus();
-    //console.log(ref.current.value)
-    setNewstock(ref.current.value);
+const Amount = forwardRef (({ stock, setStock }: AmountProps, ref:any ) =>{
+//  const [isOpen, setIsopen] = useState(false);
+
+const handleValue = (e: any) => { 
+  setStock(e.target.value)}
+
+useImperativeHandle (ref, () => ({
+handleStock(e: any){ 
+  setStock(e.target.value)
+   ref.current.value=e.target.value;
 }
+}))
+ //const dinamicComponent = useMemo(() => {
+ // return isOpen ? (
+ //  <input type="text" className="Amount-input" defaultValue={stock} onClick={handleValue}/>
+ //  ) : (
+ //    <p className="Amount-display">{stock}</p>
+ //   );
+ // }, [isOpen, stock]);
 
- const dinamicComponent = useMemo(() => {
-  return isOpen ? (
-   <input type="text" className="Amount-input" defaultValue={stock} ref={ref} onClick={handleValue}/>
-   ) : (
-     <p className="Amount-display">{newstock}</p>
-    );
-  }, [isOpen, newstock]);
-
-  // const handleTouch = ()=>{
-  //   // un callback es una funcion que se pasa como argumento de otra funcion
-  //   let open = false
-  //   setTimeout(()=>{
-  //     open = true
-  //   }, 2000)
-  // }
   
-  const handleClick=()=>{
-   setIsopen(!isOpen)
-  }
+//  const handleClick=()=>{
+//   setIsopen(!isOpen)
+
+ // }
 
   return (
     <div className="Amount_body" >
-      <div className="Amount__dinamic-container" onClick={handleClick} >
-{dinamicComponent}
+       <input type="text" className="Amount-input"  defaultValue={stock} onClick={handleValue} ref={ref}/>
         </div>
-    </div>
   );
-}
+})
 
 export default Amount;
+
+
+//const Child = forwardRef((props, ref) => {
+//  useImperativeHandle(ref, () => ({
+//    childFunction1() {
+//      console.log('child function 1 called');
+//    },
+//    childFunction2() {
+//      console.log('child function 2 called');
+//    },
+//  }));

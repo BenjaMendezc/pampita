@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef } from "react";
+import React, { ReactElement,} from "react";
 import { Card } from "../../organisms/card/Card";
 import data from "./mock/data";
 import "./Menu.scss";

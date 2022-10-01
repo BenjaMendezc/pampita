@@ -12,11 +12,15 @@ export const ButtonsGroup = ({
   className,
   setAmountState,
   stock,
+
+  
 }: ButtonsGroupProps): ReactElement => {
   const docenaHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if(stock >= 12)
+
     setAmountState((prevState) => prevState - 12);
+    //ref.current.value = stock - 12
   };
 
   const mediadocenaHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -32,3 +36,5 @@ export const ButtonsGroup = ({
     </div>
   );
 };
+
+

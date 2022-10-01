@@ -1,10 +1,9 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useRef} from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
 import Title from "../../molecules/title/Title";
 import Amount from "../../molecules/amount/Amount";
 import { ButtonsGroup } from "../../molecules/buttonsGroup/ButtonsGroup";
-import { Cantidad } from "../../molecules/Cantidad/Cantidad";
 
 type CardProps = {
   name: string;
@@ -13,6 +12,7 @@ type CardProps = {
 
 export const Card = ({ name, price }: CardProps) => {
   const [amount, setAmount] = useState<number>(25);
+  const inputRef=useRef<any>(null)
 
   const warningColor = useMemo(() => {
     const warningStyles = {
@@ -50,6 +50,10 @@ export const Card = ({ name, price }: CardProps) => {
       onSingleTap: decreaseAmount,
     }
   );
+const updateAmount = () => {
+   // setAmount((prevState) => inputRef.current.value)
+   inputRef.current.handleStock()
+}
 
   return (
     <div className="Card">
@@ -64,8 +68,8 @@ export const Card = ({ name, price }: CardProps) => {
         
       />
       </div>
-      <div className="Body__amount-container">
-        <Amount stock={amount} />
+      <div className="Body__amount-container" {...updateAmount}>
+        <Amount stock={amount} setStock={setAmount} ref={inputRef} />
       </div>
       <ButtonsGroup
         className="Buttons-group"

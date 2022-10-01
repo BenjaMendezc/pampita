@@ -11,16 +11,14 @@
   flex-direction: row;
 height: 100%;
 
-  .Amount__dinamic-container {
-    font-size: 2.3rem;
-    font-weight: bold;
   
-
     .Amount-input {
       all: unset;
       width: 15rem;
+      font-size: 2.3rem;
+      font-weight: bold;
     }
-  }
+  
   p{
     margin:0;
   }
