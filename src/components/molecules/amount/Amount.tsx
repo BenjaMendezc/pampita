@@ -1,35 +1,32 @@
-import React, { forwardRef, useImperativeHandle, useEffect} from "react";
+import React, { useEffect, ReactElement} from "react";
 import { ReactElementBaseProps } from "../../../types/global";
 import "./Amount.scss";
 
 interface AmountProps extends ReactElementBaseProps {
   stock: number;
   setStock: React.Dispatch<React.SetStateAction<number>>;
+  forwardRef: any;
 }
 
-const Amount = forwardRef (({ stock, setStock }: AmountProps, ref:any ) =>{
+const Amount = ({stock, setStock,forwardRef }: AmountProps): ReactElement =>{
 //  const [isOpen, setIsopen] = useState(false);
 
 const handleValue = (e: any) => { 
-  setStock(e.target.value)}
+  setStock(()=> e.target.value);
 
-useImperativeHandle (ref, () => ({
-handleStock(e: any){ 
-  //setStock(e.target.value)
-   ref.current.value=e.target.value;
 }
-}))
 
 useEffect(()=>{
-  console.log(stock,ref.current.value)
-},[])
+  console.log(stock,forwardRef.current.value)
+  forwardRef.current.value = stock; 
+},[stock,forwardRef])
 
   return (
     <div className="Amount_body" >
-       <input type="text" className="Amount-input"  defaultValue={stock} onClick={handleValue} ref={ref}/>
+       <input type="text" className="Amount-input"  defaultValue={stock} onClick={handleValue} ref={forwardRef}/>
         </div>
   );
-})
+}
 
 export default Amount;
 

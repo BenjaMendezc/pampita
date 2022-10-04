@@ -53,11 +53,10 @@ export const Card = ({ name, price }: CardProps) => {
 
 const updateAmount = () => {
    setAmount(() => inputRef.current.value)
-   inputRef.current.handleStock()
 }
 
 useEffect(() =>{
-  console.log(inputRef.current.value)
+//  console.log(amount, 'parent')
 },[])
 
   return (
@@ -74,7 +73,7 @@ useEffect(() =>{
       />
       </div>
       <div className="Body__amount-container" {...updateAmount}>
-        <Amount stock={amount} setStock={setAmount} ref={inputRef} />
+        <Amount stock={amount} setStock={setAmount} forwardRef={inputRef} />
       </div>
       <ButtonsGroup
         className="Buttons-group"
