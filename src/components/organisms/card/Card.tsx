@@ -1,4 +1,4 @@
-import { useMemo, useState, useRef} from "react";
+import { useMemo, useState, useRef, useEffect} from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
 import Title from "../../molecules/title/Title";
@@ -50,10 +50,15 @@ export const Card = ({ name, price }: CardProps) => {
       onSingleTap: decreaseAmount,
     }
   );
+
 const updateAmount = () => {
-   // setAmount((prevState) => inputRef.current.value)
+   setAmount(() => inputRef.current.value)
    inputRef.current.handleStock()
 }
+
+useEffect(() =>{
+  console.log(inputRef.current.value)
+},[])
 
   return (
     <div className="Card">

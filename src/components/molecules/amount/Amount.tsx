@@ -1,4 +1,4 @@
-import React, { forwardRef, useImperativeHandle} from "react";
+import React, { forwardRef, useImperativeHandle, useEffect} from "react";
 import { ReactElementBaseProps } from "../../../types/global";
 import "./Amount.scss";
 
@@ -15,10 +15,26 @@ const handleValue = (e: any) => {
 
 useImperativeHandle (ref, () => ({
 handleStock(e: any){ 
-  setStock(e.target.value)
+  //setStock(e.target.value)
    ref.current.value=e.target.value;
 }
 }))
+
+useEffect(()=>{
+  console.log(stock,ref.current.value)
+},[])
+
+  return (
+    <div className="Amount_body" >
+       <input type="text" className="Amount-input"  defaultValue={stock} onClick={handleValue} ref={ref}/>
+        </div>
+  );
+})
+
+export default Amount;
+
+
+
  //const dinamicComponent = useMemo(() => {
  // return isOpen ? (
  //  <input type="text" className="Amount-input" defaultValue={stock} onClick={handleValue}/>
@@ -32,16 +48,6 @@ handleStock(e: any){
 //   setIsopen(!isOpen)
 
  // }
-
-  return (
-    <div className="Amount_body" >
-       <input type="text" className="Amount-input"  defaultValue={stock} onClick={handleValue} ref={ref}/>
-        </div>
-  );
-})
-
-export default Amount;
-
 
 //const Child = forwardRef((props, ref) => {
 //  useImperativeHandle(ref, () => ({
