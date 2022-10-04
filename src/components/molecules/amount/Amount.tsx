@@ -9,11 +9,9 @@ interface AmountProps extends ReactElementBaseProps {
 }
 
 const Amount = ({stock, setStock,forwardRef }: AmountProps): ReactElement =>{
-//  const [isOpen, setIsopen] = useState(false);
 
 const handleValue = (e: any) => { 
   setStock(()=> e.target.value);
-
 }
 
 useEffect(()=>{
@@ -29,29 +27,3 @@ useEffect(()=>{
 }
 
 export default Amount;
-
-
-
- //const dinamicComponent = useMemo(() => {
- // return isOpen ? (
- //  <input type="text" className="Amount-input" defaultValue={stock} onClick={handleValue}/>
- //  ) : (
- //    <p className="Amount-display">{stock}</p>
- //   );
- // }, [isOpen, stock]);
-
-  
-//  const handleClick=()=>{
-//   setIsopen(!isOpen)
-
- // }
-
-//const Child = forwardRef((props, ref) => {
-//  useImperativeHandle(ref, () => ({
-//    childFunction1() {
-//      console.log('child function 1 called');
-//    },
-//    childFunction2() {
-//      console.log('child function 2 called');
-//    },
-//  }));

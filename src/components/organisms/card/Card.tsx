@@ -1,4 +1,4 @@
-import { useMemo, useState, useRef, useEffect} from "react";
+import { useMemo, useState, useRef,} from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
 import Title from "../../molecules/title/Title";
@@ -51,13 +51,7 @@ export const Card = ({ name, price }: CardProps) => {
     }
   );
 
-const updateAmount = () => {
-   setAmount(() => inputRef.current.value)
-}
 
-useEffect(() =>{
-//  console.log(amount, 'parent')
-},[])
 
   return (
     <div className="Card">
@@ -72,7 +66,7 @@ useEffect(() =>{
         
       />
       </div>
-      <div className="Body__amount-container" {...updateAmount}>
+      <div className="Body__amount-container" >
         <Amount stock={amount} setStock={setAmount} forwardRef={inputRef} />
       </div>
       <ButtonsGroup
