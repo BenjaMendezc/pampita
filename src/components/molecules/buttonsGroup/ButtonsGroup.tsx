@@ -20,7 +20,6 @@ export const ButtonsGroup = ({
     if(stock >= 12)
 
     setAmountState((prevState) => prevState - 12);
-    //ref.current.value = stock - 12
   };
 
   const mediadocenaHandler = (event: React.MouseEvent<HTMLButtonElement>) => {

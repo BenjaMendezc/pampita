@@ -11,18 +11,18 @@ interface AmountProps extends ReactElementBaseProps {
 const Amount = ({stock, setStock,forwardRef }: AmountProps): ReactElement =>{
 
 const handleValue = (e: any) => { 
-  setStock(()=> e.target.value);
+  if(e.target.value.length < 1 ) return;
+  setStock(()=> parseInt(e.target.value));
 }
 
 useEffect(()=>{
-  console.log(stock,forwardRef.current.value)
-  forwardRef.current.value = stock; 
-},[stock,forwardRef])
+  forwardRef.current.value = stock;
+},[forwardRef, stock])
 
   return (
     <div className="Amount_body" >
-       <input type="text" className="Amount-input"  defaultValue={stock} onClick={handleValue} ref={forwardRef}/>
-        </div>
+       <input type="number" className="Amount-input"  onChange={handleValue} ref={forwardRef}/>
+    </div>
   );
 }
 
