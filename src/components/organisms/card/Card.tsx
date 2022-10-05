@@ -1,4 +1,4 @@
-import { useMemo, useState, useRef,} from "react";
+import { useMemo, useState, useRef } from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
 import Title from "../../molecules/title/Title";
@@ -12,7 +12,7 @@ type CardProps = {
 
 export const Card = ({ name, price }: CardProps) => {
   const [amount, setAmount] = useState<number>(25);
-  const inputRef=useRef<any>(null)
+  const inputRef = useRef<any>(null);
 
   const warningColor = useMemo(() => {
     const warningStyles = {
@@ -51,22 +51,19 @@ export const Card = ({ name, price }: CardProps) => {
     }
   );
 
-
-
   return (
     <div className="Card">
       <div className="Card-title__container" {...handleTap}>
-      <Title
-        copy={name}
-        className="Card-title"
-        style={{
-          backgroundColor: warningColor.backgroundColor,
-          color: warningColor.fontColor,
-        }}
-        
-      />
+        <Title
+          copy={name}
+          className="Card-title"
+          style={{
+            backgroundColor: warningColor.backgroundColor,
+            color: warningColor.fontColor,
+          }}
+        />
       </div>
-      <div className="Body__amount-container" >
+      <div className="Body__amount-container">
         <Amount stock={amount} setStock={setAmount} forwardRef={inputRef} />
       </div>
       <ButtonsGroup
