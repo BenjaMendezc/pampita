@@ -1,24 +1,27 @@
-import React, { ReactElement, useMemo, useState } from "react";
+import React, { useEffect, ReactElement} from "react";
 import { ReactElementBaseProps } from "../../../types/global";
 import "./Amount.scss";
 
 interface AmountProps extends ReactElementBaseProps {
   stock: number;
+  setStock: React.Dispatch<React.SetStateAction<number>>;
+  forwardRef: any;
 }
 
-function Amount({ stock }: AmountProps): ReactElement {
-  const [isOpen, setIsopen] = useState(false);
-  const dinamicComponent = useMemo(() => {
-    return isOpen ? (
-      <input type="text" className="Amount-input" />
-    ) : (
-      <p className="Amount-display">{stock}</p>
-    );
-  }, [isOpen, stock]);
+const Amount = ({stock, setStock,forwardRef }: AmountProps): ReactElement =>{
+
+const handleValue = (e: any) => { 
+  if(e.target.value.length < 1 ) return;
+  setStock(()=> parseInt(e.target.value));
+}
+
+useEffect(()=>{
+  forwardRef.current.value = stock;
+},[forwardRef, stock])
 
   return (
-    <div className="Amount">
-      <div className="Amount__dinamic-container">{dinamicComponent}</div>
+    <div className="Amount_body" >
+       <input type="number" className="Amount-input"  onChange={handleValue} ref={forwardRef}/>
     </div>
   );
 }

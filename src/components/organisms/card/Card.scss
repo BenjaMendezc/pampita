@@ -3,26 +3,34 @@
 @use "/src/styles/mixins/respond-to" as *;
 
 .Card {
-  width: 32rem;
-  height: 15rem;
+  height: 24rem;
+  width: 18rem;
   display: flex;
   flex-direction: column;
-  .Card-title {
-    height: 50%;
-  }
-  .Card-body {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    .Body__amount-container {
-      width: 25%;
-    }
-    .Buttons-group {
+  background-color: #2d2d2f;
+  border: 0.3rem solid #fbba27;
+
+  .Card-title__container{
+    height: 35%;
+    border-bottom: 0.15rem solid #fbba27;
+
+    .Card-title {
+      height: 100%;
       display: flex;
-      width: 50%;
-    }
-    .Cantidad {
-      width: 25%;
+      justify-content: center;
+      align-items: center;
+      font-size: x-large;
+      font-weight: bold;
     }
   }
+  .Body__amount-container {
+      width: 100%;
+      height: 32.5%;
+      border-bottom: 0.15rem solid #fbba27;
+    }
+  .Buttons-group {
+      display: flex;
+      width: 100%;
+      height: 32.5%;
+    }
 }

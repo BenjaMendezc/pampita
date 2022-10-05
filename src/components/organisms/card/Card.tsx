@@ -1,41 +1,40 @@
-import { useMemo, useState, forwardRef, useImperativeHandle } from "react";
+import { useMemo, useState, useRef } from "react";
 import "./Card.scss";
 import { useDoubleTap } from "use-double-tap";
 import Title from "../../molecules/title/Title";
 import Amount from "../../molecules/amount/Amount";
 import { ButtonsGroup } from "../../molecules/buttonsGroup/ButtonsGroup";
-import { Cantidad } from "../../molecules/Cantidad/Cantidad";
 
 type CardProps = {
   name: string;
   price: any;
 };
 
-export const Card = forwardRef(({ name, price }: CardProps, ref) => {
-  useImperativeHandle(ref, () => ({
-    setRestedAmount() {
-      setAmount((prevState) => prevState - pedidoValue);
-      setPedidoValue(0);
-    },
-  }));
-
+export const Card = ({ name, price }: CardProps) => {
   const [amount, setAmount] = useState<number>(25);
-  const [pedidoValue, setPedidoValue] = useState<number>(0);
+  const inputRef = useRef<any>(null);
 
   const warningColor = useMemo(() => {
-    if (amount === 0) return "red";
+    const warningStyles = {
+      backgroundColor: "",
+      fontColor: "#fcfcfc",
+    };
 
-    let warningLevel;
+    if (amount === 0) {
+      warningStyles.backgroundColor = "red";
+      return warningStyles;
+    }
 
     if (amount > 12) {
-      warningLevel = "#78fac8";
+      warningStyles.backgroundColor = "#2d2d2f";
     } else {
-      warningLevel = "#fff300";
+      warningStyles.backgroundColor = "#fff300";
+      warningStyles.fontColor = "#2d2d2f";
     }
 
     // const warningLevel = amount > 12 ? "#78fac8" : "#fff300";
 
-    return warningLevel;
+    return warningStyles;
   }, [amount]);
 
   const decreaseAmount = () => {
@@ -46,39 +45,32 @@ export const Card = forwardRef(({ name, price }: CardProps, ref) => {
     (event) => {
       setAmount((prevState) => prevState + 1);
     },
-    200,
+    300,
     {
       onSingleTap: decreaseAmount,
     }
   );
 
-  // #333538fa pizarra? maybe?
-  // #faba33 Pregato
-  // ##fcfcfc bianco
-
   return (
     <div className="Card">
-      <Title
-        copy={name}
-        className="Card-title"
-        style={{ backgroundColor: warningColor }}
-        {...handleTap}
-      />
-      <div className="Card-body">
-        <div className="Body__amount-container">
-          <Amount stock={amount} />
-        </div>
-        <ButtonsGroup
-          className="Buttons-group"
-          setParentState={setPedidoValue}
-        />
-        <Cantidad
-          className="Cantidad"
-          copy="Cantidad"
-          value={pedidoValue}
-          handleChange={setPedidoValue}
+      <div className="Card-title__container" {...handleTap}>
+        <Title
+          copy={name}
+          className="Card-title"
+          style={{
+            backgroundColor: warningColor.backgroundColor,
+            color: warningColor.fontColor,
+          }}
         />
       </div>
+      <div className="Body__amount-container">
+        <Amount stock={amount} setStock={setAmount} forwardRef={inputRef} />
+      </div>
+      <ButtonsGroup
+        className="Buttons-group"
+        setAmountState={setAmount}
+        stock={amount}
+      />
     </div>
   );
-});
+};

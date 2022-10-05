@@ -6,12 +6,11 @@
   align-items: center;
   flex-direction: column;
   gap: 1rem;
-
-  @include respond-to(min768) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
+  background-color: #484852;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
 }
 
 .Comanda-total {
